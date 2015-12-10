@@ -21,7 +21,7 @@ public class Fader implements Runnable {
 				label.setForeground(new Color(c.getRed(), c.getGreen(), c.getBlue(), alpha));
 				label.repaint();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(100);
 				} catch (InterruptedException ex) {
 					// Logger.getLogger(Fader.class.getName()).log(Level.SEVERE,
 					// null, ex);
@@ -33,7 +33,7 @@ public class Fader implements Runnable {
 				label.setForeground(new Color(c.getRed(), c.getGreen(), c.getBlue(), alpha));
 				label.repaint();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(100);
 				} catch (InterruptedException ex) {
 					// Logger.getLogger(Fader.class.getName()).log(Level.SEVERE,
 					// null, ex);

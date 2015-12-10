@@ -2,6 +2,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import render.AudioUtility;
 import ui.GameTitle;
 
 public class Main {
@@ -14,6 +15,7 @@ public class Main {
 		window.setSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
 		window.add(gameTitle);
 		window.setVisible(true);
+		
 	}
 
 }

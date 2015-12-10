@@ -20,6 +20,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import render.AudioUtility;
+
 
 public class GameTitle extends JPanel {
 	protected BufferedImage bg ;
@@ -34,6 +36,7 @@ public class GameTitle extends JPanel {
 		    bg = ImageIO.read(new File("res/titlebg.jpg"));
 		} catch (IOException e) {
 		}
+		AudioUtility.playSound("intro");
 		if(bg == null) System.out.println("null");
 		screenWidth = (int) bg.getWidth();
 		screenHeight = (int) bg.getHeight();
