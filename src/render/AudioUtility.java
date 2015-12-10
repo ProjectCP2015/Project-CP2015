@@ -11,7 +11,10 @@ public class AudioUtility {
 		acIntro = Applet.newAudioClip(loader.getResource("res/intro.wav"));
 	}
 	public static void playSound(String identifier){
-		if(identifier.equals("intro")) acIntro.play();
+		if(identifier.equals("intro")) {
+			//acIntro.play();
+			acIntro.loop();
+		}
 		
 	}
 
