@@ -17,5 +17,10 @@ public class AudioUtility {
 		}
 		
 	}
+	public static void stop(String identifier){
+		if(identifier.equals("intro")){
+			acIntro.stop();
+		}
+	}
 
 }
