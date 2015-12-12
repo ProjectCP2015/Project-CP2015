@@ -36,11 +36,13 @@ public class GameTitle extends JPanel {
 		    bg = ImageIO.read(new File("res/titlebg.jpg"));
 		} catch (IOException e) {
 		}
+		//play intro
 		AudioUtility.playSound("intro");
+		
 		if(bg == null) System.out.println("null");
 		screenWidth = (int) bg.getWidth();
 		screenHeight = (int) bg.getHeight();
-		this.setSize(new Dimension(screenWidth, screenHeight));
+		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		setDoubleBuffered(true);
 		press = new JLabel("press any key");
 		press.setForeground(Color.WHITE);
@@ -81,7 +83,7 @@ public class GameTitle extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				AudioUtility.stop("intro");
 			}
 		});
 		

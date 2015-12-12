@@ -12,8 +12,10 @@ public class Main {
 		JFrame window = new JFrame("Beat Track");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GameTitle gameTitle = new GameTitle();
-		window.setSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
+		//window.setPreferredSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
+		window.setPreferredSize(new Dimension(515,545));
 		window.add(gameTitle);
+		window.pack();
 		window.setVisible(true);
 		
 	}
