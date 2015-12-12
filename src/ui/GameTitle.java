@@ -9,6 +9,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -19,6 +21,7 @@ import javax.annotation.Resources;
 import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import render.AudioUtility;
 
@@ -30,29 +33,26 @@ public class GameTitle extends JPanel {
 	protected JLabel press;
 	
 	public GameTitle(){
-		//bg = render.Resources.titleBg;
-		//this.setLayout(null);
 		try {
-		    bg = ImageIO.read(new File("res/titlebg.jpg"));
+		    bg = ImageIO.read(new File("res/titlebg2.jpg"));
 		} catch (IOException e) {
 		}
-		//play intro
 		AudioUtility.playSound("intro");
-		
 		if(bg == null) System.out.println("null");
-		screenWidth = (int) bg.getWidth();
-		screenHeight = (int) bg.getHeight();
-		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+		screenWidth = (int) bg.getWidth()+5;
+		screenHeight = (int) bg.getHeight()+35;
+		this.setSize(new Dimension(screenWidth, screenHeight));
 		setDoubleBuffered(true);
-		press = new JLabel("press any key");
+		press = new JLabel("press any key",SwingConstants.CENTER);
 		press.setForeground(Color.WHITE);
 		press.setBackground(Color.BLACK);
 		press.setFont(new Font("Arial", Font.BOLD, 30));
+		this.setLayout(null);
 		this.add(press);
-		//press.setBounds(new Rectangle(new Point(200, 300)));
+		Dimension size = press.getPreferredSize();
+		press.setBounds(screenWidth/2-size.width/2,3*screenHeight/4-size.height/2, size.width, size.height);
 		Fader presss = new Fader(press);
 		Thread t = new Thread(presss);
-		//System.out.println(press.getForeground().getAlpha());
 		t.start();
 		this.addMouseListener(new MouseListener() {
 			
@@ -86,7 +86,8 @@ public class GameTitle extends JPanel {
 				AudioUtility.stop("intro");
 			}
 		});
-		
+
+		//how to add listener to all key?
 		
 	}
 	

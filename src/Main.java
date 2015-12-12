@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 import render.AudioUtility;
+import ui.GameMenu;
 import ui.GameTitle;
 
 public class Main {
@@ -11,13 +12,27 @@ public class Main {
 		// TODO Auto-generated method stub
 		JFrame window = new JFrame("Beat Track");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		GameTitle gameTitle = new GameTitle();
-		//window.setPreferredSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
-		window.setPreferredSize(new Dimension(515,545));
-		window.add(gameTitle);
-		window.pack();
+		//GameTitle gameTitle = new GameTitle();
+		//window.setSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
+		//window.add(gameTitle);
+		testTitle(window);
+		//testMenu(window);
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		window.setResizable(false);
 		window.setVisible(true);
 		
+	}
+	
+	public static void testTitle(JFrame window){
+		GameTitle gameTitle = new GameTitle();
+		window.setSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
+		window.add(gameTitle);
+	}
+	
+	public static void testMenu(JFrame window){
+		GameMenu menu = new GameMenu();
+		window.setSize(new Dimension(800,600));
+		window.add(menu);
 	}
 
 }

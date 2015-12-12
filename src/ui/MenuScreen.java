@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import beatmap.Song;
 
 public class MenuScreen extends JPanel {
+	//********Currently Unused**********
 	//public static List<Song> list = new CopyOnWriteArrayList<Song>();
 	public MenuScreen(){
 		super();
@@ -22,9 +24,9 @@ public class MenuScreen extends JPanel {
 		super.paintComponent(g);
 	}
 	
-	public JPanel westPanel(){
-		JPanel panel = new JPanel();
-		return panel;
+	public JScrollPane westPanel(){
+		JScrollPane scroll = new JScrollPane();
+		return scroll;
 	}
 	
 	public JPanel eastPanel(){
