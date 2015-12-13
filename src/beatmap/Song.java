@@ -13,7 +13,9 @@ public class Song {
 	private String name;
 	private  BufferedImage pic;
 	private String deemoURL;
-	private int highScore, highCombo;
+	
+	private Scanner highScorComURL;
+	private int highScore,highCombo;
 	
 	private Scanner in;	 
 	
@@ -26,8 +28,20 @@ public class Song {
 		}
 		
 		name = in.nextLine();
+		
+		/*
 		highScore = in.nextInt();
 		highCombo = in.nextInt();
+		*/
+		try{
+			highScorComURL = new Scanner(new File(in.nextLine()));
+			
+		}catch(FileNotFoundException e){e.printStackTrace();}
+		
+		highScore = highScorComURL.nextInt();
+		highCombo = highScorComURL.nextInt();
+		//currently 2 file for 1 map
+		
 		try{
 			pic = ImageIO.read(new File(in.nextLine()));
 		}catch(IOException e){}
