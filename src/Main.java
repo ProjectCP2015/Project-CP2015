@@ -2,6 +2,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import beatmap.Song;
 import render.AudioUtility;
 import ui.GameMenu;
 import ui.GameTitle;
@@ -15,11 +16,14 @@ public class Main {
 		//GameTitle gameTitle = new GameTitle();
 		//window.setSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
 		//window.add(gameTitle);
-		testTitle(window);
-		//testMenu(window);
+		//testTitle(window);
+		testMenu(window);
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		window.setResizable(false);
 		window.setVisible(true);
+		
+		//Song test = new Song("res/test.txt");
+		//System.out.println(test.getName());
 		
 	}
 	
