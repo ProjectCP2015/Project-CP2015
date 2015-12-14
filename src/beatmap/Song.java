@@ -1,10 +1,12 @@
 package beatmap;
 
+import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
@@ -12,9 +14,12 @@ import javax.imageio.ImageIO;
 public class Song {
 	private String name;
 	private  BufferedImage pic;
-	private String deemoURL;
+	private AudioClip demo;
 	
+	private String path;
+	PrintStream stream;
 	private Scanner highScorComURL;
+	
 	private int highScore,highCombo;
 	
 	private Scanner in;	 
@@ -34,7 +39,8 @@ public class Song {
 		highCombo = in.nextInt();
 		*/
 		try{
-			highScorComURL = new Scanner(new File(in.nextLine()));
+			path = in.nextLine();
+			highScorComURL = new Scanner(new File(path));
 			
 		}catch(FileNotFoundException e){e.printStackTrace();}
 		
@@ -45,8 +51,10 @@ public class Song {
 		try{
 			pic = ImageIO.read(new File(in.nextLine()));
 		}catch(IOException e){}
-		deemoURL = in.nextLine();
 		
+		try{ClassLoader loader = Song.class.getClassLoader();
+		demo = Applet.newAudioClip(loader.getResource(in.nextLine()));
+		}catch(StackOverflowError e){e.printStackTrace();};
 	}
 
 
@@ -58,8 +66,8 @@ public class Song {
 		return pic;
 	}
 
-	public String getDeemoURL() {
-		return deemoURL;
+	public AudioClip getDemo() {
+		return demo;
 	}
 
 	public int getHighScore() {
@@ -79,6 +87,21 @@ public class Song {
 
 	public void setHighCombo(int highCombo) {
 		this.highCombo = highCombo;
+	}
+	
+	public void save(){
+		try {
+			stream = new PrintStream(path);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.setOut(stream);
+		System.out.println(highScore);
+		System.out.println(highCombo);
+		
+		
+	
 	}
 
 }

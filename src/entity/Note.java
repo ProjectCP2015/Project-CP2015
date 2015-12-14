@@ -10,13 +10,11 @@ import javax.imageio.ImageIO;
 import render.IRenderable;
 
 public class Note implements IRenderable{
-	protected int type;
-	protected int length;
 	protected int line;
 	protected int coY,V;
 	protected int time;
-	protected BufferedImage img;
-	public Note(int type,int length, int line, int coY, int V, int time){
+	/*resource*/protected BufferedImage img;
+	/*public Note(int type,int length, int line, int coY, int V, int time){
 		this.type = type;
 		this.length = length;
 		this.line = line;
@@ -26,7 +24,7 @@ public class Note implements IRenderable{
 		try{
 			img = ImageIO.read(new File(""));
 		}catch(IOException e){e.printStackTrace();}
-	}
+	}*/
 	
 	@Override
 	public void draw(Graphics2D g2d) {

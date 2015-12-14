@@ -16,8 +16,8 @@ public class Main {
 		//GameTitle gameTitle = new GameTitle();
 		//window.setSize(new Dimension(gameTitle.screenWidth,gameTitle.screenHeight));
 		//window.add(gameTitle);
-		//testTitle(window);
-		testMenu(window);
+		testTitle(window);
+		//testMenu(window);
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		window.setResizable(false);
 		window.setVisible(true);

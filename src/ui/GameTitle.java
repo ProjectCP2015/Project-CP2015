@@ -23,6 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import beatmap.Song;
 import render.AudioUtility;
 
 
@@ -32,12 +33,17 @@ public class GameTitle extends JPanel {
 	public int screenHeight;
 	protected JLabel press;
 	
+	//public Song colorful = new Song("res/map/colorful.txt");
+	
 	public GameTitle(){
 		try {
 		    bg = ImageIO.read(new File("res/titlebg2.jpg"));
+		   
 		} catch (IOException e) {
 		}
 		AudioUtility.playSound("intro");
+		
+		
 		if(bg == null) System.out.println("null");
 		screenWidth = (int) bg.getWidth()+5;
 		screenHeight = (int) bg.getHeight()+35;
@@ -83,7 +89,7 @@ public class GameTitle extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				AudioUtility.stop("intro");
+				//AudioUtility.stop("intro");
 			}
 		});
 
